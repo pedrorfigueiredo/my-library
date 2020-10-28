@@ -9,7 +9,7 @@ const theme = {
     lightPrimary: '#C5CAE9',
     secondary: '#ff4081',
     primaryText: '#212121',
-    secondarText: '#757575',
+    secondaryText: '#757575',
     text: '#fff',
     divider: '#bdbdbd',
   },

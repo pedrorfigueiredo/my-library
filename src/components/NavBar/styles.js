@@ -10,7 +10,8 @@ export const Wrapper = styled.div`
 export const NavItem = styled(NavLink)`
   padding: 15px 20px;
   color: ${(props) => props.theme.color.text};
-  :hover {
+  :hover,
+  &.active {
     background: ${(props) => props.theme.color.darkPrimary};
   }
 `;
