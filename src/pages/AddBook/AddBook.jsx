@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { v4 as uuid } from 'uuid';
 import SearchBar from '../../components/SearchBar';
 import AddCard from '../../components/AddCard';
 import Loader from '../../components/Loader';
@@ -22,7 +23,6 @@ function AddBook() {
     const res = await axios.get(
       `http://openlibrary.org/search.json?q=${query}`
     );
-    console.log(res.data.docs);
     if (res.data.docs.length < 1) {
       setLoading(false);
       return setError('Livro não encontrado');
@@ -43,13 +43,18 @@ function AddBook() {
       {loading && <Loader />}
       {!loading && error && <Error>{error}</Error>}
       <Grid>
-        {books.map((book) => (
-          <AddCard
-            title={book.title}
-            author={book.author_name}
-            year={book.first_publish_year}
-          />
-        ))}
+        {books.map((book) => {
+          const id = uuid();
+          return (
+            <AddCard
+              key={id}
+              id={id}
+              title={book.title}
+              author={book.author_name}
+              year={book.first_publish_year}
+            />
+          );
+        })}
       </Grid>
     </Wrapper>
   );

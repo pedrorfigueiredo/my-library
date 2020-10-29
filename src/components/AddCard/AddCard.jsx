@@ -1,21 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Wrapper, Title, Author, Year } from './styles';
+import { useDispatch } from 'react-redux';
+import { addBook, removeBook } from '../../store/ducks/reducer';
+import { Wrapper, Title, Author, Year, OkMark } from './styles';
 
-function AddCard({ title, author, year }) {
+function AddCard({ id, title, author, year }) {
+  const [isAdd, setIsAdd] = useState(false);
+  const dispatch = useDispatch();
+  const book = { id, title, author, year };
+
+  const handleAddBook = () => {
+    console.log(id);
+    if (isAdd) {
+      dispatch(removeBook(id));
+      setIsAdd(false);
+      return;
+    }
+    dispatch(addBook(book));
+    setIsAdd(true);
+  };
+
   return (
-    <Wrapper>
+    <Wrapper key={id} isAdd={isAdd} onClick={handleAddBook}>
       <Title>{title}</Title>
       <Author>{author}</Author>
       <Year>{year}</Year>
+      {isAdd && <OkMark />}
     </Wrapper>
   );
 }
 
 AddCard.propTypes = {
+  id: PropTypes.string.isRequired,
   title: PropTypes.string,
   author: PropTypes.string,
-  year: PropTypes.string,
+  year: PropTypes.number,
 };
 
 AddCard.defaultProps = {

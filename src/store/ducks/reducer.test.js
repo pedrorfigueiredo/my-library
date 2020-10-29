@@ -1,7 +1,7 @@
 import reducer, { Types } from './reducer';
 
 describe('Reducer', () => {
-  it('handles actions with unknown type', () => {
+  it('handles actions of unknown type', () => {
     const action = {
       type: 'RANDOM_WORD',
     };

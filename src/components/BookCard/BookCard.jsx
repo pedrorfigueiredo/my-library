@@ -15,7 +15,7 @@ function BookCard({ title, author, year }) {
 BookCard.propTypes = {
   title: PropTypes.string,
   author: PropTypes.string,
-  year: PropTypes.string,
+  year: PropTypes.number,
 };
 
 BookCard.defaultProps = {
