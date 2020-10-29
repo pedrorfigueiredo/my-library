@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Wrapper, Title, Author, Year } from './styles';
 
-function BookCard({ title, author, year }) {
+function AddCard({ title, author, year }) {
   return (
     <Wrapper>
       <Title>{title}</Title>
@@ -12,16 +12,16 @@ function BookCard({ title, author, year }) {
   );
 }
 
-BookCard.propTypes = {
+AddCard.propTypes = {
   title: PropTypes.string,
   author: PropTypes.string,
   year: PropTypes.string,
 };
 
-BookCard.defaultProps = {
+AddCard.defaultProps = {
   title: 'Título não informado',
   author: 'Autor não informado',
   year: 'Ano não informado',
 };
 
-export default BookCard;
+export default AddCard;

@@ -21,7 +21,7 @@ SearchBar.propTypes = {
 };
 
 SearchBar.defaultProps = {
-  value: '',
+  value: null,
   handleChange: null,
   handleSubmit: null,
 };
