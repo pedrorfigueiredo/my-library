@@ -12,7 +12,14 @@ function BookList() {
       <SearchBar />
       <Grid>
         {books.map((book) => (
-          <BookCard title={book.title} author={book.author} year={book.year} />
+          <BookCard
+            key={book.id}
+            id={book.id}
+            title={book.title}
+            author={book.author}
+            year={book.year}
+            isRead={book.isRead}
+          />
         ))}
       </Grid>
     </Wrapper>

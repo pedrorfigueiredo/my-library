@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   padding: 10px;
   @media (max-width: 768px) {
     padding: 5%;
+    align-items: center;
   }
 `;
 
@@ -17,5 +18,6 @@ export const Grid = styled.div`
   margin-top: 10px;
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
+    width: 90%;
   }
 `;

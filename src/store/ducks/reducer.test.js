@@ -10,7 +10,7 @@ describe('Reducer', () => {
     expect(newState).toEqual({});
   });
 
-  it('handles actions with ADD_BOOK type', () => {
+  it('handles actions of ADD_BOOK type', () => {
     const book = { id: 1234, title: 'test' };
     const action = {
       type: Types.ADD_BOOK,
@@ -21,7 +21,7 @@ describe('Reducer', () => {
     expect(newState.books).toEqual([book]);
   });
 
-  it('handles actions with REMOVE_BOOK type', () => {
+  it('handles actions of REMOVE_BOOK type', () => {
     const book = { id: 1234, title: 'test' };
     const action = {
       type: Types.REMOVE_BOOK,
@@ -30,5 +30,16 @@ describe('Reducer', () => {
 
     const newState = reducer({ books: [book] }, action);
     expect(newState.books).toEqual([]);
+  });
+
+  it('handles actions of READ_BOOK type', () => {
+    const book = { id: 1234, title: 'test', isRead: false };
+    const action = {
+      type: Types.READ_BOOK,
+      payload: 1234,
+    };
+
+    const newState = reducer({ books: [book] }, action);
+    expect(newState.books[0].isRead).toEqual(true);
   });
 });

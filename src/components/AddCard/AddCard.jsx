@@ -7,7 +7,7 @@ import { Wrapper, Title, Author, Year, OkMark } from './styles';
 function AddCard({ id, title, author, year }) {
   const [isAdd, setIsAdd] = useState(false);
   const dispatch = useDispatch();
-  const book = { id, title, author, year };
+  const book = { id, title, author, year, isRead: false };
 
   const handleAddBook = () => {
     console.log(id);
