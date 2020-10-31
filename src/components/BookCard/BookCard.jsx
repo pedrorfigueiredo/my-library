@@ -11,7 +11,7 @@ import {
   ReadState,
 } from './styles';
 
-function BookCard({ id, title, author, year, isRead }) {
+function BookCard({ id, title, author, year, isRead, monthRead, yearRead }) {
   const dispatch = useDispatch();
 
   const handleDeleteBook = () => {
@@ -22,7 +22,8 @@ function BookCard({ id, title, author, year, isRead }) {
     if (isRead === true) {
       return;
     }
-    dispatch(readBook(id));
+    const newDate = new Date();
+    dispatch(readBook(id, newDate));
   };
 
   return (
@@ -33,7 +34,7 @@ function BookCard({ id, title, author, year, isRead }) {
       <DeleteButton onClick={handleDeleteBook} />
       {isRead ? (
         <ReadState isRead={isRead} onClick={handleReadBook}>
-          Lido
+          Lido - {monthRead}/{yearRead}
         </ReadState>
       ) : (
         <ReadState isRead={isRead} onClick={handleReadBook}>
@@ -50,12 +51,16 @@ BookCard.propTypes = {
   author: PropTypes.string,
   year: PropTypes.number,
   isRead: PropTypes.bool.isRequired,
+  monthRead: PropTypes.string,
+  yearRead: PropTypes.number,
 };
 
 BookCard.defaultProps = {
   title: 'Título não informado',
   author: 'Autor não informado',
   year: 'Ano não informado',
+  monthRead: undefined,
+  yearRead: undefined,
 };
 
 export default BookCard;

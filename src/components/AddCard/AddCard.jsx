@@ -10,7 +10,6 @@ function AddCard({ id, title, author, year }) {
   const book = { id, title, author, year, isRead: false };
 
   const handleAddBook = () => {
-    console.log(id);
     if (isAdd) {
       dispatch(removeBook(id));
       setIsAdd(false);

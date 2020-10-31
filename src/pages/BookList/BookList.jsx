@@ -1,15 +1,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import SearchBar from '../../components/SearchBar';
+// import SearchBar from '../../components/SearchBar';
 import BookCard from '../../components/BookCard';
-import { Wrapper, Grid } from './styles';
+import { Wrapper, Grid, Message } from './styles';
 
 function BookList() {
   const books = useSelector((state) => state.books);
 
   return (
     <Wrapper>
-      <SearchBar />
+      {/* <SearchBar /> */}
       <Grid>
         {books.map((book) => (
           <BookCard
@@ -19,9 +19,12 @@ function BookList() {
             author={book.author}
             year={book.year}
             isRead={book.isRead}
+            monthRead={book.monthRead}
+            yearRead={book.yearRead}
           />
         ))}
       </Grid>
+      {books.length < 1 && <Message>Sua coleção está vazia.</Message>}
     </Wrapper>
   );
 }

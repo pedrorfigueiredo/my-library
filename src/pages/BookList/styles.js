@@ -21,3 +21,11 @@ export const Grid = styled.div`
     width: 90%;
   }
 `;
+
+export const Message = styled.div`
+  font-size: ${(props) => props.theme.fontSize.large};
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;

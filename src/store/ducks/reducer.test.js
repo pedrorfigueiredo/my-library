@@ -36,10 +36,24 @@ describe('Reducer', () => {
     const book = { id: 1234, title: 'test', isRead: false };
     const action = {
       type: Types.READ_BOOK,
-      payload: 1234,
+      payload: { id: 1234, date: new Date() },
     };
 
     const newState = reducer({ books: [book] }, action);
     expect(newState.books[0].isRead).toEqual(true);
+  });
+
+  it('handles actions of FETCH_BOOKS type', () => {
+    const books = [
+      { id: 1234, title: 'test', isRead: false },
+      { id: 5678, title: 'test2', isRead: false },
+    ];
+    const action = {
+      type: Types.FETCH_BOOKS,
+      payload: books,
+    };
+
+    const newState = reducer({}, action);
+    expect(newState.books).toEqual(books);
   });
 });

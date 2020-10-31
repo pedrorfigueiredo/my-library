@@ -1,8 +1,11 @@
+import months from '../../utils/months';
+
 // Actions Types
 export const Types = {
   ADD_BOOK: 'ADD_BOOK',
   REMOVE_BOOK: 'REMOVE_BOOK',
   READ_BOOK: 'READ_BOOK',
+  FETCH_BOOKS: 'FETCH_BOOKS',
 };
 
 // Reducer
@@ -25,9 +28,13 @@ const reducer = (state = initialState, action) => {
       };
 
     case Types.READ_BOOK: {
-      const index = state.books.findIndex((book) => book.id === action.payload);
+      const index = state.books.findIndex(
+        (book) => book.id === action.payload.id
+      );
       const newBook = state.books[index];
       newBook.isRead = true;
+      newBook.monthRead = months[action.payload.date.getMonth()];
+      newBook.yearRead = action.payload.date.getFullYear();
       return {
         ...state,
         books: [
@@ -38,30 +45,56 @@ const reducer = (state = initialState, action) => {
       };
     }
 
+    case Types.FETCH_BOOKS: {
+      const books = action.payload || [];
+      return { ...state, books };
+    }
+
     default:
       return state;
   }
 };
 
 // Action creators
-export const addBook = (book) => {
-  return {
+export const addBook = (book) => (dispatch) => {
+  const books = JSON.parse(localStorage.getItem('books'));
+  let newBooks;
+  if (!books) {
+    newBooks = [book];
+  } else {
+    newBooks = [...books, book];
+  }
+  localStorage.setItem('books', JSON.stringify(newBooks));
+
+  dispatch({
     type: Types.ADD_BOOK,
     payload: book,
-  };
+  });
 };
 
-export const removeBook = (id) => {
-  return {
+export const removeBook = (id) => (dispatch) => {
+  const books = JSON.parse(localStorage.getItem('books'));
+  const newBooks = [...books.filter((book) => book.id !== id)];
+  localStorage.setItem('books', JSON.stringify(newBooks));
+
+  dispatch({
     type: Types.REMOVE_BOOK,
     payload: id,
+  });
+};
+
+export const readBook = (id, date) => {
+  return {
+    type: Types.READ_BOOK,
+    payload: { id, date },
   };
 };
 
-export const readBook = (id) => {
+export const fetchBooks = () => {
+  const books = JSON.parse(localStorage.getItem('books'));
   return {
-    type: Types.READ_BOOK,
-    payload: id,
+    type: Types.FETCH_BOOKS,
+    payload: books,
   };
 };
 
