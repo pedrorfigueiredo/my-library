@@ -11,6 +11,7 @@ import { Layout } from './styles';
 import NavBar from './components/NavBar';
 import BookList from './pages/BookList';
 import AddBook from './pages/AddBook';
+import Report from './pages/Report';
 
 function App() {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={BookList} />
           <Route path="/adicionar" component={AddBook} />
+          <Route path="/relatorio" component={Report} />
           <Redirect to="/" />
         </Switch>
       </Layout>

@@ -83,19 +83,32 @@ export const removeBook = (id) => (dispatch) => {
   });
 };
 
-export const readBook = (id, date) => {
-  return {
+export const readBook = (id, date) => (dispatch) => {
+  const books = JSON.parse(localStorage.getItem('books'));
+  const index = books.findIndex((book) => book.id === id);
+  const newBook = books[index];
+  newBook.isRead = true;
+  newBook.monthRead = months[date.getMonth()];
+  newBook.yearRead = date.getFullYear();
+  const newBooks = [
+    ...books.slice(0, index),
+    newBook,
+    ...books.slice(index + 1, books.length),
+  ];
+
+  localStorage.setItem('books', JSON.stringify(newBooks));
+  dispatch({
     type: Types.READ_BOOK,
     payload: { id, date },
-  };
+  });
 };
 
-export const fetchBooks = () => {
+export const fetchBooks = () => (dispatch) => {
   const books = JSON.parse(localStorage.getItem('books'));
-  return {
+  dispatch({
     type: Types.FETCH_BOOKS,
     payload: books,
-  };
+  });
 };
 
 export default reducer;

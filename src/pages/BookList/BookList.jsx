@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-// import SearchBar from '../../components/SearchBar';
 import BookCard from '../../components/BookCard';
 import { Wrapper, Grid, Message } from './styles';
 
@@ -9,7 +8,6 @@ function BookList() {
 
   return (
     <Wrapper>
-      {/* <SearchBar /> */}
       <Grid>
         {books.map((book) => (
           <BookCard

@@ -48,8 +48,8 @@ function BookCard({ id, title, author, year, isRead, monthRead, yearRead }) {
 BookCard.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string,
-  author: PropTypes.string,
-  year: PropTypes.number,
+  author: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
+  year: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   isRead: PropTypes.bool.isRequired,
   monthRead: PropTypes.string,
   yearRead: PropTypes.number,
