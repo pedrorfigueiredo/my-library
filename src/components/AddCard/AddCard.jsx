@@ -33,7 +33,7 @@ AddCard.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string,
   author: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
-  year: PropTypes.number,
+  year: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
 AddCard.defaultProps = {
