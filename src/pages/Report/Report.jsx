@@ -37,7 +37,7 @@ function Report() {
       {filteredBooks.length > 0 ? (
         <MonthStats books={filteredBooks} />
       ) : (
-        <Message>No readed books for this year yet</Message>
+        <Message>No read books for this year yet</Message>
       )}
     </Wrapper>
   );

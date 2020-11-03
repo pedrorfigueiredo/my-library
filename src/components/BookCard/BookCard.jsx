@@ -34,11 +34,11 @@ function BookCard({ id, title, author, year, isRead, monthRead, yearRead }) {
       <DeleteButton onClick={handleDeleteBook} />
       {isRead ? (
         <ReadState isRead={isRead} onClick={handleReadBook}>
-          Readed - {monthRead}/{yearRead}
+          Read - {monthRead}/{yearRead}
         </ReadState>
       ) : (
         <ReadState isRead={isRead} onClick={handleReadBook}>
-          Not readed
+          Not read
         </ReadState>
       )}
     </Wrapper>

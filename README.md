@@ -4,7 +4,7 @@
 
 Demo: [My Library App](https://my-library-app.vercel.app/)
 
-My Library App is a local library where the user can store his books. The user can tag which books he reads and the system will register in what month and year it is done. This app uses [Open Library](https://openlibrary.org/) API for querying the books, bringing its author and publishing year. The report page will bring all the statistics regarding the number of books readed in each month and year. The data is saved in Local Storage.
+My Library App is a local library where the user can store his books. The user can tag which books he reads and the system will register in what month and year it is done. This app uses [Open Library](https://openlibrary.org/) API for querying the books, bringing its author and publishing year. The report page will bring all the statistics regarding the number of read books in each month and year. The data is saved in Local Storage.
 
 ## Installation
 
@@ -42,7 +42,7 @@ This page contains the form for searching a book by name. Clicking the book card
 
 ### Experience Page: `/report`
 
-This page contains the full statistics report of each year. It displays the monthly average number of books and the quantity of readed books per month.
+This page contains the full statistics report of each year. It displays the monthly average number of books and the quantity of read books per month.
 
 ## Technologies Utilized
 
