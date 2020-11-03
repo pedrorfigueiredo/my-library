@@ -10,7 +10,7 @@ function Report() {
 
   useEffect(() => {
     setFilteredBooks(books.filter((book) => book.yearRead === year));
-  }, [year]);
+  }, [year, books]);
 
   const handleChange = (e) => {
     // eslint-disable-next-line radix

@@ -39,13 +39,15 @@ function MonthStats({ books }) {
 
   const display = (quantity, mes) => (
     <span>
-      {mes}: {quantity} livros
+      {mes}: {quantity} {quantity > 1 ? <>livros</> : <>livro</>}
     </span>
   );
 
   return (
     <>
-      <Average>Média mensal: {avg} livros</Average>
+      <Average>
+        Média mensal: {avg} {avg > 1 ? <>livros</> : <>livro</>}
+      </Average>
       {monthBooks[0] ? (
         <Monthly>{display(monthBooks[0], 'Janeiro')}</Monthly>
       ) : null}
