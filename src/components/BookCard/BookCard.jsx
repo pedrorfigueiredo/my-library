@@ -34,11 +34,11 @@ function BookCard({ id, title, author, year, isRead, monthRead, yearRead }) {
       <DeleteButton onClick={handleDeleteBook} />
       {isRead ? (
         <ReadState isRead={isRead} onClick={handleReadBook}>
-          Lido - {monthRead}/{yearRead}
+          Readed - {monthRead}/{yearRead}
         </ReadState>
       ) : (
         <ReadState isRead={isRead} onClick={handleReadBook}>
-          Não lido
+          Not readed
         </ReadState>
       )}
     </Wrapper>
@@ -56,9 +56,9 @@ BookCard.propTypes = {
 };
 
 BookCard.defaultProps = {
-  title: 'Título não informado',
-  author: 'Autor não informado',
-  year: 'Ano não informado',
+  title: 'Title not found',
+  author: 'Author not found',
+  year: 'Year not found',
   monthRead: undefined,
   yearRead: undefined,
 };

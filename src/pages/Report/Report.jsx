@@ -25,7 +25,7 @@ function Report() {
   return (
     <Wrapper>
       <YearGroup>
-        <YearLabel>Ano:</YearLabel>
+        <YearLabel>Year:</YearLabel>
         <YearSelect value={year} onChange={handleChange}>
           {yearsOptions.map((option) => (
             <option key={option} value={option}>
@@ -37,7 +37,7 @@ function Report() {
       {filteredBooks.length > 0 ? (
         <MonthStats books={filteredBooks} />
       ) : (
-        <Message>Nenhum livro lido neste ano</Message>
+        <Message>No readed books for this year yet</Message>
       )}
     </Wrapper>
   );

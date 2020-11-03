@@ -25,7 +25,7 @@ function AddBook() {
     );
     if (res.data.docs.length < 1) {
       setLoading(false);
-      return setError('Livro não encontrado');
+      return setError('Book not found');
     }
     setLoading(false);
     setError('');
@@ -34,7 +34,7 @@ function AddBook() {
 
   return (
     <Wrapper>
-      <Title>Insira o título do livro</Title>
+      <Title>Type the book&apos;s title</Title>
       <SearchBar
         value={query}
         handleChange={handleChange}

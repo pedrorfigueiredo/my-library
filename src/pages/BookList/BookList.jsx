@@ -22,7 +22,7 @@ function BookList() {
           />
         ))}
       </Grid>
-      {books.length < 1 && <Message>Sua coleção está vazia.</Message>}
+      {books.length < 1 && <Message>Your collection is empty</Message>}
     </Wrapper>
   );
 }
