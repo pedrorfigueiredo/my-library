@@ -36,11 +36,11 @@ The pages are locally routed with the aid of react-router.
 
 This page contains all of the user's books. The user can delete the book or mark it as read.
 
-* New Post Page: `/adicionar`
+* New Post Page: `/add`
 
 This page contains the form for searching a book by name. Clicking the book card adds it to the library. Clicking again removes it.
 
-* Experience Page: `/relatorio`
+* Experience Page: `/report`
 
 This page contains the full statistics report of each year. It displays the monthly average number of books and the quantity of readed books per month.
 

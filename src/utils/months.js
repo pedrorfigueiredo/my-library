@@ -2,15 +2,15 @@ const months = [
   'jan',
   'fev',
   'mar',
-  'abr',
+  'apr',
   'mai',
   'jun',
   'jul',
-  'ago',
+  'aug',
   'set',
-  'out',
+  'oct',
   'nov',
-  'dez',
+  'dec',
 ];
 
 export default months;

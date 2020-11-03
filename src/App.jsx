@@ -26,8 +26,8 @@ function App() {
         <NavBar />
         <Switch>
           <Route exact path="/" component={BookList} />
-          <Route path="/adicionar" component={AddBook} />
-          <Route path="/relatorio" component={Report} />
+          <Route path="/add" component={AddBook} />
+          <Route path="/report" component={Report} />
           <Redirect to="/" />
         </Switch>
       </Layout>

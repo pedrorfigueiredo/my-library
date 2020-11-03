@@ -37,9 +37,9 @@ AddCard.propTypes = {
 };
 
 AddCard.defaultProps = {
-  title: 'Título não informado',
-  author: 'Autor não informado',
-  year: 'Ano não informado',
+  title: 'Title not found',
+  author: 'Author not found',
+  year: 'Year not found',
 };
 
 export default AddCard;

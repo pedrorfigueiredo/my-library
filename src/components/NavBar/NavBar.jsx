@@ -5,10 +5,10 @@ function NavBar() {
   return (
     <Wrapper>
       <NavItem to="/" exact>
-        Meus Livros
+        My Books
       </NavItem>
-      <NavItem to="/adicionar">Adicionar à Coleção</NavItem>
-      <NavItem to="/relatorio">Relatório</NavItem>
+      <NavItem to="/add">Add Book</NavItem>
+      <NavItem to="/report">Reports</NavItem>
     </Wrapper>
   );
 }
