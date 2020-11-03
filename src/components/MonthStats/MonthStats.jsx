@@ -89,7 +89,7 @@ function MonthStats({ books }) {
 }
 
 MonthStats.propTypes = {
-  books: PropTypes.arrayOf(PropTypes.array).isRequired,
+  books: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
 };
 
 export default MonthStats;

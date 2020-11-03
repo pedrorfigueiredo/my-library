@@ -32,7 +32,7 @@ function AddCard({ id, title, author, year }) {
 AddCard.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string,
-  author: PropTypes.string,
+  author: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
   year: PropTypes.number,
 };
 

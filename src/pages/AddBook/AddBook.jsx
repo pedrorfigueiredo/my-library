@@ -21,7 +21,7 @@ function AddBook() {
     setBooks([]);
     setLoading(true);
     const res = await axios.get(
-      `http://openlibrary.org/search.json?q=${query}`
+      `https://openlibrary.org/search.json?q=${query}`
     );
     if (res.data.docs.length < 1) {
       setLoading(false);
